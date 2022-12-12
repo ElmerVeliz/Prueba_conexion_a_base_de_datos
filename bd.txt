@@ -1,0 +1,21 @@
+create database sis_biblioteca_2022_2;
+use sis_biblioteca_2022_2;
+create table tb_libro
+(
+ cod_lib int primary key auto_increment,
+ tit_lib varchar(50),
+ pre_lib double,
+ can_lib int
+);
+alter table tb_libro add cod_edi int;
+create table tb_editorial
+(
+ cod_edi int primary key auto_increment,
+ nom_edi varchar(30)
+);
+insert into tb_editorial values(null,'Corefo');
+insert into tb_editorial values(null,'Santillan');
+insert into tb_editorial values(null,'San Marcos');
+insert into tb_editorial values(null,'Macro');
+SELECT * FROM tb_editorial;
+alter table tb_libro add constraint fk01 foreign key(cod_edi) references tb_editorial(cod_edi);
